@@ -12,8 +12,8 @@ class PoppyApi
 
   def call_primitive(move, operation)
     uri = "#{@uri}/#{move}/#{operation}.json"
+    puts  "=========== #{uri} ============================="
     response = RestClient.get uri
-    raise
     # case response
     # when
     #   "OK"
