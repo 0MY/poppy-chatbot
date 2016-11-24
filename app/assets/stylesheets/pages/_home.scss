@@ -1,4 +1,41 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+
+
+.banner {
+  // cursor: pointer;
+  // padding: 2px 400px;
+  // max-width: 350px;
+  // border: none;
+  // border-radius: 2px;
+  // padding: 20px 10px;
+  // background-color: #FDFDFD;
+  // box-shadow: 0 1px 1px 0px rgba(0,0,0,0.16);
+  background-image: image_url('poppy_entier.jpg');
+  height: 90vh;
+  position: relative;
+
+}
+
+.banner-content {
+  background-color: white;
+  padding: 20px;
+  position: absolute;
+  border-radius: 20px;
+  top: 31%;
+  left: 45%;
+}
+.banner-content:before {
+  content: ' ';
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  right: 10px;
+  top: -6px;
+  background-color: white;
+  transform: rotate(45deg);
+  border-left: 1px solid #E6E6E6;
+  border-top: 1px solid #E6E6E6;
+}
+
+a:hover {
+  text-decoration: none;
+}
