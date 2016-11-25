@@ -4,31 +4,94 @@
   </div>
   <div class="bubble">
     <p>
-      <a href="<%= ENV['POPPY_WEB'] %>/primitive/head_idle_motion/start.json" class="btn btn-primary btn-lg" class="btn btn-primary btn-lg">
-        Start your head
-      </a>
-      <a href="<%= ENV['POPPY_WEB'] %>/primitive/head_idle_motion/stop.json" class="btn btn-primary btn-lg" class="btn btn-primary btn-lg">
-        Stop
-      </a>
+      <div class="btn btn-primary btn-lg" id="initstart">
+        Get Ready - Start
+      </div>
+      <div class="btn btn-primary btn-lg" id="initstop">
+        Get Ready - Stop
+      </div>
     </p>
     <p>
-      <a href="<%= ENV['POPPY_WEB'] %>/primitive/dance_beat_motion/start.json" class="btn btn-primary btn-lg">
-        Start Dancing
-      </a>
-      <a href="<%= ENV['POPPY_WEB'] %>/primitive/dance_beat_motion/stop.json" class="btn btn-primary btn-lg">
-        Stop
-      </a>
+      <div class="btn btn-primary btn-lg" id="look_start">
+        Look around - Start
+      </div>
+      <div class="btn btn-primary btn-lg" id="look_stop">
+        Look around - Stop
+      </div>
     </p>
     <p>
-      <a href="<%= ENV['POPPY_WEB'] %>/primitive/upper_body_idle_motion/start.json" class="btn btn-primary btn-lg">
-        Start your body
-      </a>
-      <a href="<%= ENV['POPPY_WEB'] %>/primitive/upper_body_idle_motion/stop.json" class="btn btn-primary btn-lg">
-        Stop
-      </a>
+      <div class="btn btn-primary btn-lg" id="dancestart">
+        Dance - Start
+      </div>
+      <div class="btn btn-primary btn-lg" id="dancestop">
+        Dance - Stop
+      </div>
+    </p>
+    <p>
+      <div class="btn btn-primary btn-lg" id="idle_start">
+        Stay idle - Start
+      </div>
+      <div class="btn btn-primary btn-lg" id="idle_stop">
+        Stay idle - Stop
+      </div>
     </p>
   </div>
 </div>
 
+<% content_for :poppyRestApi do %>
+  <script>
+    function callRestApi(uri) {
+      // event.defaultPrevented(); // Won't go back to top. Useless if only a DIV, usefull if in a href or in a form submit>
+      $.ajax({
+        type: "GET",
+        url: uri,
+        success: function(data) {
+          console.log(data);
+        },
+        error: function(jqXHR) {
+          console.error(jqXHR.responseText);
+        }
+      });
+    };
 
+    $('#initstart').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/start.json"
+      callRestApi(uri);
+    });
 
+    $('#initstop').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/stop.json"
+      callRestApi(uri);
+    });
+
+    $('#look_start').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/start.json"
+      callRestApi(uri);
+    });
+
+    $('#look_start').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/stop.json"
+      callRestApi(uri);
+    });
+
+    $('#dancestart').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/start.json"
+      callRestApi(uri);
+    });
+
+    $('#dancestart').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/stop.json"
+      callRestApi(uri);
+    });
+
+    $('#idle_start').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/start.json"
+      callRestApi(uri);
+    });
+
+    $('#idle_start').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/stop.json"
+      callRestApi(uri);
+    });
+  </script>
+<% end %>
