@@ -6,7 +6,7 @@ class PoppyApi
     @uri = "#{ENV["POPPY_WEB"]}/primitive"
   end
 
-  def danse(operation)
+  def dance(operation)
     call_primitive("dance_beat_motion",operation)
   end
 

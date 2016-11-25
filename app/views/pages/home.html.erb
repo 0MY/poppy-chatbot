@@ -4,10 +4,10 @@
   </div>
   <div class="bubble">
     <p>
-      <div class="btn btn-primary btn-lg" id="initstart">
+      <div class="btn btn-primary btn-lg" id="init_start">
         Get Ready - Start
       </div>
-      <div class="btn btn-primary btn-lg" id="initstop">
+      <div class="btn btn-primary btn-lg" id="init_stop">
         Get Ready - Stop
       </div>
     </p>
@@ -20,10 +20,10 @@
       </div>
     </p>
     <p>
-      <div class="btn btn-primary btn-lg" id="dancestart">
+      <div class="btn btn-primary btn-lg" id="dance_start">
         Dance - Start
       </div>
-      <div class="btn btn-primary btn-lg" id="dancestop">
+      <div class="btn btn-primary btn-lg" id="dance_stop">
         Dance - Stop
       </div>
     </p>
@@ -52,45 +52,45 @@
           console.error(jqXHR.responseText);
         }
       });
-    };
+    }
 
-    $('#initstart').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/start.json"
+    $('#init_start').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/start.json";
       callRestApi(uri);
     });
 
-    $('#initstop').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/stop.json"
-      callRestApi(uri);
-    });
-
-    $('#look_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/start.json"
+    $('#init_stop').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/stop.json";
       callRestApi(uri);
     });
 
     $('#look_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/stop.json"
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/start.json";
       callRestApi(uri);
     });
 
-    $('#dancestart').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/start.json"
+    $('#look_stop').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/stop.json";
       callRestApi(uri);
     });
 
-    $('#dancestart').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/stop.json"
+    $('#dance_start').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/start.json";
+      callRestApi(uri);
+    });
+
+    $('#dance_stop').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/stop.json";
       callRestApi(uri);
     });
 
     $('#idle_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/start.json"
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/start.json";
       callRestApi(uri);
     });
 
-    $('#idle_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/stop.json"
+    $('#idle_stop').on('click', function(event) {
+      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/stop.json";
       callRestApi(uri);
     });
   </script>

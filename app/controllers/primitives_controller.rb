@@ -19,9 +19,9 @@ class PrimitivesController < ApplicationController
     # prim = {"robot": {"#{params[:operation]}_primitive": {"primitive": ""}}}
 
       p = PoppyApi.new
-      p.danse("start")
-      sleep(10)
-      p.danse("stop")
+      p.dance("start")
+      # sleep(10)
+      # p.dance("stop")
   end
 
 end
