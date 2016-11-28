@@ -19,15 +19,22 @@ class PrimitivesController < ApplicationController
     # prim = {"robot": {"#{params[:operation]}_primitive": {"primitive": ""}}}
 
     @p = PoppyApi.new
-    call_api
+    call_prim_api
     respond_to do |format|
       format.js
     end
   end
 
+  def motor2poppy
+    @m = PoppyApi.new
+    call_motor_api
+    respond_to do |format|
+      format.js
+  end
+
 private
 
-  def call_api
+  def call_prim_api
     case params[:primitive]
     when "init"
       @p.init(params[:operation])
@@ -37,6 +44,28 @@ private
       @p.dance(params[:operation])
     when "idle"
       @p.idle(params[:operation])
+    when "primitive"
+      @p.primitive(params[:operation])
+    when "running"
+      @p.running(params[:operation])
+    end
+  end
+
+  def call_motor_api
+    case params[:operation]
+    when "list"
+      case params[:motor]
+        when "motor"
+          @m.list_motor
+        when "alias"
+          @m.list_alias
+      end
+    when "list_alias_motors"
+      @m.list_alias_motors(params[:motor])
+    when "list_registers"
+      @m.list_registers(params[:motor])
+    when "register_value"
+      @m.register_value(params[:motor])
     end
   end
 end

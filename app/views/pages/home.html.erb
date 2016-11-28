@@ -24,7 +24,7 @@
       <%= link_to "Dance - Start", primitives_prim2poppy_path(primitive: "dance", operation: "start"), remote: true %>
       </div>
       <div class="btn btn-primary btn-lg">
-        <%= link_to "Dance - Start", primitives_prim2poppy_path(primitive: "dance", operation: "stop"), remote: true %>
+        <%= link_to "Dance - Stop", primitives_prim2poppy_path(primitive: "dance", operation: "stop"), remote: true %>
       </div>
     </p>
     <p>
@@ -32,7 +32,35 @@
         <%= link_to "Stay idle - Start", primitives_prim2poppy_path(primitive: "idle", operation: "start"), remote: true %>
       </div>
       <div class="btn btn-primary btn-lg">
-        <%= link_to "Stay idle - Start", primitives_prim2poppy_path(primitive: "idle", operation: "stop"), remote: true %>
+        <%= link_to "Stay idle - Stop", primitives_prim2poppy_path(primitive: "idle", operation: "stop"), remote: true %>
+      </div>
+    </p>
+    <p>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to "List primitives", primitives_prim2poppy_path(primitive: "primitive", operation: "list"), remote: true %>
+      </div>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to "List running primitives", primitives_prim2poppy_path(primitive: "running", operation: "list"), remote: true %>
+      </div>
+    </p>
+    <p>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to "List motors", primitives_motor2poppy_path(motor: "motor", operation: "list"), remote: true %>
+      </div>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to "List motors alias", primitives_motor2poppy_path(motor: "alias", operation: "list"), remote: true %>
+      </div>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN No DE MOTEUR ICI VIA UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to "List motors for alias", primitives_motor2poppy_path(motor: "xxx", operation: "list_alias_motors"), remote: true %>
+      </div>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN No DE MOTEUR ICI VIA UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to "List registers for motor", primitives_motor2poppy_path(motor: "xxx", operation: "list_registers"), remote: true %>
+      </div>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN No DE MOTEUR ICI VIA UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to "List register value for motor", primitives_motor2poppy_path(motor: "xxx", operation: "register_value"), remote: true %>
       </div>
     </p>
   </div>
