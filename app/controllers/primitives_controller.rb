@@ -20,6 +20,7 @@ class PrimitivesController < ApplicationController
 
     @p = PoppyApi.new
     call_api
+    @primitive = params[:primitive]
     respond_to do |format|
       format.js
     end

@@ -1,39 +1,54 @@
+
+<h1>Play with Poppy</h1>
+
 <div class="flex">
   <div class="poppy">
     <img src="http://i.imgur.com/nsDXAA3.png">
   </div>
   <div class="bubble">
-    <p>
-      <div class="btn btn-primary btn-lg">
-      <%= link_to "Get Ready - Start", primitives_prim2poppy_path(primitive: "init", operation: "start"), remote: true %>
-      </div>
-      <div class="btn btn-primary btn-lg">
-      <%= link_to "Get Ready - Stop", primitives_prim2poppy_path(primitive: "init", operation: "stop"), remote: true %>
-      </div>
-    </p>
-    <p>
-      <div class="btn btn-primary btn-lg">
-      <%= link_to "Look around - Start", primitives_prim2poppy_path(primitive: "head", operation: "start"), remote: true %>
-      </div>
-      <div class="btn btn-primary btn-lg">
-      <%= link_to "Look around - Stop", primitives_prim2poppy_path(primitive: "head", operation: "stop"), remote: true %>
-      </div>
-    </p>
-    <p>
-      <div class="btn btn-primary btn-lg">
-      <%= link_to "Dance - Start", primitives_prim2poppy_path(primitive: "dance", operation: "start"), remote: true %>
-      </div>
-      <div class="btn btn-primary btn-lg">
-        <%= link_to "Dance - Start", primitives_prim2poppy_path(primitive: "dance", operation: "stop"), remote: true %>
-      </div>
-    </p>
-    <p>
-      <div class="btn btn-primary btn-lg">
-        <%= link_to "Stay idle - Start", primitives_prim2poppy_path(primitive: "idle", operation: "start"), remote: true %>
-      </div>
-      <div class="btn btn-primary btn-lg">
-        <%= link_to "Stay idle - Start", primitives_prim2poppy_path(primitive: "idle", operation: "stop"), remote: true %>
-      </div>
-    </p>
+    <div class="bubble-content">
+      <h3>Get Ready</h3>
+      <%= link_to primitives_prim2poppy_path(primitive: "init", operation: "start"), remote: true, class: "btn btn-primary btn-lg btn-init btn-move" do %>
+        <i class="fa fa-play" aria-hidden="true"></i>
+      <% end %>
+
+      <%= link_to primitives_prim2poppy_path(primitive: "init", operation: "stop"), remote: true, class: "btn btn-primary btn-lg btn-init btn-move hidden" do %>
+      <i class="fa fa-stop" aria-hidden="true"></i>
+      <% end %>
+    </div>
+
+    <div class="bubble-content">
+      <h3>Look around</h3>
+      <%= link_to primitives_prim2poppy_path(primitive: "head", operation: "start"), remote: true, class: "btn btn-primary btn-lg btn-head btn-move" do %>
+       <i class="fa fa-play" aria-hidden="true"></i>
+      <% end %>
+
+      <%= link_to primitives_prim2poppy_path(primitive: "head", operation: "stop"), remote: true, class: "btn btn-primary btn-lg btn-head btn-move hidden" do %>
+      <i class="fa fa-stop" aria-hidden="true"></i>
+      <% end %>
+    </div>
+
+    <div class="bubble-content">
+      <h3>Dance</h3>
+      <%= link_to primitives_prim2poppy_path(primitive: "dance", operation: "start"), remote: true, class: "btn btn-primary btn-lg btn-move btn-dance" do %>
+       <i class="fa fa-play" aria-hidden="true"></i>
+      <% end %>
+
+      <%= link_to primitives_prim2poppy_path(primitive: "dance", operation: "stop"), remote: true, class: "btn btn-primary btn-lg btn-dance btn-move hidden" do %>
+        <i class="fa fa-stop" aria-hidden="true"></i>
+      <% end %>
+    </div>
+
+    <div class="bubble-content">
+      <h3>Stay</h3>
+      <%= link_to primitives_prim2poppy_path(primitive: "idle", operation: "start"), remote: true, class: "btn btn-primary btn-lg btn-idle btn-move" do %>
+       <i class="fa fa-play" aria-hidden="true"></i>
+      <% end %>
+
+      <%= link_to primitives_prim2poppy_path(primitive: "idle", operation: "stop"), remote: true, class: "btn btn-primary btn-lg btn-idle btn-move hidden" do %>
+        <i class="fa fa-stop" aria-hidden="true"></i>
+      <% end %>
+    </div>
+
   </div>
 </div>
