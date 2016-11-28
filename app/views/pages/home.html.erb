@@ -4,94 +4,36 @@
   </div>
   <div class="bubble">
     <p>
-      <div class="btn btn-primary btn-lg" id="init_start">
+      <div class="btn btn-primary btn-lg">
       <%= link_to "Get Ready - Start", primitives_prim2poppy_path(primitive: "init", operation: "start"), remote: true %>
       </div>
-      <div class="btn btn-primary btn-lg" id="init_stop">
-        Get Ready - Stop
+      <div class="btn btn-primary btn-lg">
+      <%= link_to "Get Ready - Stop", primitives_prim2poppy_path(primitive: "init", operation: "stop"), remote: true %>
       </div>
     </p>
     <p>
-      <div class="btn btn-primary btn-lg" id="look_start">
-        Look around - Start
+      <div class="btn btn-primary btn-lg">
+      <%= link_to "Look around - Start", primitives_prim2poppy_path(primitive: "head", operation: "start"), remote: true %>
       </div>
-      <div class="btn btn-primary btn-lg" id="look_stop">
-        Look around - Stop
-      </div>
-    </p>
-    <p>
-      <div class="btn btn-primary btn-lg" id="dance_start">
-        Dance - Start
-      </div>
-      <div class="btn btn-primary btn-lg" id="dance_stop">
-        Dance - Stop
+      <div class="btn btn-primary btn-lg">
+      <%= link_to "Look around - Stop", primitives_prim2poppy_path(primitive: "head", operation: "stop"), remote: true %>
       </div>
     </p>
     <p>
-      <div class="btn btn-primary btn-lg" id="idle_start">
-        Stay idle - Start
+      <div class="btn btn-primary btn-lg">
+      <%= link_to "Dance - Start", primitives_prim2poppy_path(primitive: "dance", operation: "start"), remote: true %>
       </div>
-      <div class="btn btn-primary btn-lg" id="idle_stop">
-        Stay idle - Stop
+      <div class="btn btn-primary btn-lg">
+        <%= link_to "Dance - Start", primitives_prim2poppy_path(primitive: "dance", operation: "stop"), remote: true %>
+      </div>
+    </p>
+    <p>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to "Stay idle - Start", primitives_prim2poppy_path(primitive: "idle", operation: "start"), remote: true %>
+      </div>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to "Stay idle - Start", primitives_prim2poppy_path(primitive: "idle", operation: "stop"), remote: true %>
       </div>
     </p>
   </div>
 </div>
-
-<% content_for :poppyRestApi do %>
-  <script>
-    function callRestApi(uri) {
-      // event.defaultPrevented(); // Won't go back to top. Useless if only a DIV, usefull if in a href or in a form submit>
-      $.ajax({
-        type: "GET",
-        url: uri,
-        success: function(data) {
-          console.log(data);
-        },
-        error: function(jqXHR) {
-          console.error(jqXHR.responseText);
-        }
-      });
-    }
-
-    $('#init_start').on('click', function(event) {
-      var uri = "http://93593ece.ngrok.io/primitive/init_position/start.json";
-      callRestApi(uri);
-    });
-
-    $('#init_stop').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/stop.json";
-      callRestApi(uri);
-    });
-
-    $('#look_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/start.json";
-      callRestApi(uri);
-    });
-
-    $('#look_stop').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/head_idle_motion/stop.json";
-      callRestApi(uri);
-    });
-
-    $('#dance_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/start.json";
-      callRestApi(uri);
-    });
-
-    $('#dance_stop').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/dance_beat_motion/stop.json";
-      callRestApi(uri);
-    });
-
-    $('#idle_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/start.json";
-      callRestApi(uri);
-    });
-
-    $('#idle_stop').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/upper_body_idle_motion/stop.json";
-      callRestApi(uri);
-    });
-  </script>
-<% end %>

@@ -25,31 +25,18 @@ class PrimitivesController < ApplicationController
     end
   end
 
-  def prim2poppyhead
-    p = PoppyApi.new
-    p.head("start")
-    sleep(10)
-    p.head("stop")
-  end
-
-  def prim2poppyidle
-    p = PoppyApi.new
-    p.idle("start")
-    sleep(10)
-    p.idle("stop")
-  end
-
-  def prim2poppyinit
-    p = PoppyApi.new
-    p.init("start")
-  end
-
 private
 
   def call_api
     case params[:primitive]
     when "init"
       @p.init(params[:operation])
+    when "head"
+      @p.head(params[:operation])
+    when "dance"
+      @p.dance(params[:operation])
+    when "idle"
+      @p.idle(params[:operation])
     end
   end
 end
