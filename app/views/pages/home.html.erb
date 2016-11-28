@@ -55,7 +55,7 @@
     }
 
     $('#init_start').on('click', function(event) {
-      var uri = "<%= ENV["POPPY_WEB"] %>/primitive/init_position/start.json";
+      var uri = "http://93593ece.ngrok.io/primitive/init_position/start.json";
       callRestApi(uri);
     });
 

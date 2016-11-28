@@ -13,15 +13,33 @@ class PrimitivesController < ApplicationController
   # N:   Get the primitive methods list      GET  /primitive/<prim>/method/list.json          {"robot": {"get_primitive_methods_list": {"primitive": ""}}}                                                                      {"methods": ["get_tracked_faces", "start", "stop", "pause", "resume"]}
   # N:   Call a method of a primitive        POST /primitive/<prim>/method/<meth>/args.json  {"robot": {"call_primitive_method": {"primitive": "", "method": "", "args": {"arg1": "val1", "arg2": "val2", "...": "..."}}}}
 
-  def prim2poppy
+  def prim2poppydance
     # params[:primitive]
     # params[:operation]
     # prim = {"robot": {"#{params[:operation]}_primitive": {"primitive": ""}}}
 
-      p = PoppyApi.new
-      p.dance("start")
-      # sleep(10)
-      # p.dance("stop")
+    p = PoppyApi.new
+    p.dance("start")
+    sleep(10)
+    p.dance("stop")
   end
 
+  def prim2poppyhead
+    p = PoppyApi.new
+    p.head("start")
+    sleep(10)
+    p.head("stop")
+  end
+
+  def prim2poppyidle
+    p = PoppyApi.new
+    p.idle("start")
+    sleep(10)
+    p.idle("stop")
+  end
+
+  def prim2poppyinit
+    p = PoppyApi.new
+    p.init("start")
+  end
 end
