@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'primitives/prim2poppydance'
-  get 'primitives/prim2poppyidle'
-  get 'primitives/prim2poppyinit'
-  get 'primitives/prim2poppyhead'
+  get 'primitives/prim2poppy'
 
   devise_for :users
   root to: 'pages#home'

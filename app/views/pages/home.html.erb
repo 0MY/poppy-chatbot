@@ -5,7 +5,7 @@
   <div class="bubble">
     <p>
       <div class="btn btn-primary btn-lg" id="init_start">
-        Get Ready - Start
+      <%= link_to "Get Ready - Start", primitives_prim2poppy_path(primitive: "init", operation: "start"), remote: true %>
       </div>
       <div class="btn btn-primary btn-lg" id="init_stop">
         Get Ready - Stop
