@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'primitives/prim2poppy'
-  get 'primitives/list'
+  get 'primitives/motor2poppy'
+  get 'primitives/prim_index'
 
 
   devise_for :users

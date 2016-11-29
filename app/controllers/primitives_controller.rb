@@ -16,10 +16,10 @@ class PrimitivesController < ApplicationController
   def prim2poppy
     # params[:primitive]
     # params[:operation]
-    # prim = {"robot": {"#{params[:operation]}_primitive": {"primitive": ""}}}
+    #   prim = {"robot": {"#{params[:operation]}_primitive": {"primitive": ""}}}
 
     @p = PoppyApi.new
-    call_prim_api
+    @ans = call_prim_api
     respond_to do |format|
       format.js
     end
@@ -30,6 +30,7 @@ class PrimitivesController < ApplicationController
     call_motor_api
     respond_to do |format|
       format.js
+    end
   end
 
 private
@@ -48,6 +49,8 @@ private
       @p.primitive(params[:operation])
     when "running"
       @p.running(params[:operation])
+    else
+      raise
     end
   end
 
@@ -55,10 +58,12 @@ private
     case params[:operation]
     when "list"
       case params[:motor]
-        when "motor"
-          @m.list_motor
-        when "alias"
-          @m.list_alias
+      when "motor"
+        @m.list_motor
+      when "alias"
+        @m.list_alias
+      else
+        raise
       end
     when "list_alias_motors"
       @m.list_alias_motors(params[:motor])
@@ -66,6 +71,8 @@ private
       @m.list_registers(params[:motor])
     when "register_value"
       @m.register_value(params[:motor])
+    else
+      raise
     end
   end
 end
