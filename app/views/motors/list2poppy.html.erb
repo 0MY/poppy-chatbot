@@ -1,0 +1,78 @@
+<div>
+  <h1>Poppy motors lists</h1>
+</div>
+
+<div class="flex">
+  <div class="poppy">
+    <img src="http://i.imgur.com/nsDXAA3.png">
+  </div>
+  <div class="bubble">
+    <div class="bubble-content">
+      <!-- LISTS -->
+      <h3>List motors</h3>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to motors_list2poppy_path(motor: "motor", operation: "list"), remote: true %>
+      </div>
+      <h3>List alias</h3>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to motors_list2poppy_path(motor: "alias", operation: "list"), remote: true %>
+      </div>
+      <h3>List alias motors</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN ALIAS DE MOTEUR ICI VIA UNE BOITE DE CHOIX MULTIPLE -->
+        <%= link_to motors_list2poppy_path(motor: "xxx", operation: "list_alias_motors"), remote: true %>
+      </div>
+      <h3>List motor registers</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_list2poppy_path(motor: "xxx", operation: "list_registers"), remote: true %>
+      </div>
+
+      <!-- VALUES -->
+      <h3>Get motor register value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "get_register"), remote: true %>
+      </div>
+      <h3>Set motor register value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "set_register"), remote: true %>
+      </div>
+      <h3>Get motor position value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "get_position"), remote: true %>
+      </div>
+      <h3>Set motor position value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "set_position"), remote: true %>
+      </div>
+      <h3>Get motor speed value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "get_speed"), remote: true %>
+      </div>
+      <h3>Set motor speed value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "set_speed"), remote: true %>
+      </div>
+      <h3>Get motor load value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "get_load"), remote: true %>
+      </div>
+      <h3>Set motor torque value</h3>
+      <div class="btn btn-primary btn-lg">
+        <!-- RECUPERER UN NOM DE MOTEUR ET UN REGISTER ICI VIA UN FORM OU UNE BOITE DE CHOIX MULTIPLE OU UN CLIC SUR LE MOTEUR -->
+        <%= link_to motors_motor2poppy_path(motor: "xxx", operation: "set_torque"), remote: true %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="infos">
+</div>
+
