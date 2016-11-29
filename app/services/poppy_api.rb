@@ -107,7 +107,11 @@ class PoppyApi
   def call_primitive(action, operation)
     uri = "#{@uri}/#{action}/#{operation}.json"
     response = RestClient.get uri
-    { result: response.code, answer: JSON.parse(response.body) }
+    if response.body.blank?
+      { result: response.code, answer: "" }
+    else
+      { result: response.code, answer: JSON.parse(response.body) }
+    end
   end
 
   # Motors API call
