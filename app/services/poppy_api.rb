@@ -1,10 +1,15 @@
 require 'rest-client'
 
+MOTOR_NAMES = []
+
 class PoppyApi
 
   def initialize
     @uri = "#{ENV["POPPY_WEB"]}"
   end
+
+  # Primitives Methods
+  # ------------------
 
   def init(operation)
     call_primitive("primitive/init_position", operation)
@@ -40,7 +45,44 @@ class PoppyApi
 
 
 
-  def motor_list
+  # Motors Methods
+  # --------------
+
+  def get_register(motor, arg)
+    # Poppy API
+    # GET /motor/<motor_name>/register/<register_name>
+    # json: {"robot": {"get_register_value": {"motor": "", "register": ""}}}
+    # anwer example: {"present_position": 30}
+  end
+
+  def set_register(motor, arg, value)
+  # Poppy API
+  # POST /motor/<motor_name>/register/<register_name>/value.json
+  #   json: {"robot": {"set_register_value": {"motor": "", "register": "", "value": {"arg1": "val1", "arg2": "val2", "...": "..."}}}
+  #   answer exemple: {}
+  end
+
+  def get_position(motor, arg)
+    call_motor("motor/#{motor}/register/#{arg}", "")
+  end
+
+  def set_position(motor, arg, value)
+    call_motor("motor/#{motor}/register/#{arg}", "value")
+  end
+
+  def get_speed(motor, arg)
+  end
+
+  def set_speed(motor, arg, value)
+  end
+
+  def get_load(motor, arg)
+  end
+
+  def set_torque(motor, arg, value)
+  end
+
+  def list_motor
     # Poppy API
     # GET /motor/list.json
     #   json: {"robot": {"get_motors_list": {"alias": "motors"}}}
@@ -48,24 +90,34 @@ class PoppyApi
     call_motor("motor", "list")
   end
 
+  def list_alias
+    call_motor("motor/alias", "list")
+  end
 
+  def list_alias_motors(motor)
+    call_motor("motor/#{motor}", "list")
+  end
+
+  def list_registers(motor)
+    call_motor("motor/#{motor}/register/", "list")
+  end
+
+  # Primitives API call
+  # -------------------
   def call_primitive(action, operation)
     uri = "#{@uri}/#{action}/#{operation}.json"
     response = RestClient.get uri
     { result: response.code, answer: JSON.parse(response.body) }
   end
 
-  def call_motor(target, operation)
-    uri = "#{@uri}/#{target}/#{operation}.json"
+  # Motors API call
+  # ---------------
+  def call_motor(action, operation)
+    uri = "#{@uri}/#{action}/#{operation}.json"
     response = RestClient.get uri
+    { result: response.code, answer: JSON.parse(response.body) }
     raise
   end
-
-  # Poppy API
-  # POST /motor/<motor_name>/register/<register_name>/value.json
-  #   json: {"robot": {"set_register_value": {"motor": "", "register": "", "value": {"arg1": "val1", "arg2": "val2", "...": "..."}}}
-  #   answer exemple: {}
-
 end
 
 

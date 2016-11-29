@@ -1,0 +1,25 @@
+<div>
+  <h1>Poppy primitives lists</h1>
+</div>
+
+<div class="flex">
+  <div class="poppy">
+    <img src="http://i.imgur.com/nsDXAA3.png">
+  </div>
+  <div class="bubble">
+    <div class="bubble-content">
+      <h3>List primitives</h3>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to primitives_prim2poppy_path(primitive: "primitive", operation: "list"), remote: true %>
+      </div>
+      <h3>List running primitives</h3>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to primitives_prim2poppy_path(primitive: "running", operation: "list"), remote: true %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="infos">
+</div>
+

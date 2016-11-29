@@ -1,2 +1,4 @@
 // To be completed with code to change button color/contrast while primitive is running ?
-$("#infos").html("<%= j render("shared/infos", ans: @ans) %>")
+
+$('.btn-<%= @primitive %>').toggleClass('hidden');
+

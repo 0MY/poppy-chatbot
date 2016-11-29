@@ -1,3 +1,41 @@
+
+h1 {
+ font-size: 110px;
+ margin-bottom: -91px;
+ margin-top: 22px;
+ color : white;
+}
+
+.btn-primary{
+  background-color: #ca111a;
+  color: white;
+  border-color : #ca111a;
+  border-radius : 10px;
+  box-shadow: 0 1px 1px 0px rgba(0,0,0,0.16);
+  margin-left: 8px;
+  &:hover{
+    background-color: #ca111a;
+    opacity: 0.7;
+  }
+}
+
+.bubble-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+a:hover {
+ background-color: #ca111a;
+ border-color: grey ;
+}
+
+a:visited {
+ background-color: #ca111a;
+ border-color: grey ;
+}
+
 body {
   background: #8C928F;
 }
@@ -13,12 +51,13 @@ body {
 }
 
 .bubble {
-  background: white;
+  background: #efeded;
   align-self: center;
   padding: 20px;
   border-radius: 10px;
   position: relative;
   margin-left: -120px;
+  box-shadow: 0 55px 75px 29px rgba(0,0,0,0.16);
 }
 
 .bubble:before {
