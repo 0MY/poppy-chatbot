@@ -30,6 +30,8 @@ class MotorsController < ApplicationController
     end
   end
 
+private
+
   def call_motor_api
     case params[:operation]
         when "get_register"
@@ -52,7 +54,6 @@ class MotorsController < ApplicationController
           raise
       end
     end
-  end
 
   def call_list_api
     case params[:motor]
