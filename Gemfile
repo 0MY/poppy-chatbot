@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'rest-client'
 gem 'redis'
+gem 'net-ssh'
 
 gem 'sass-rails'
 gem 'jquery-rails'
