@@ -1,6 +1,5 @@
 require 'net-ssh'
 require 'rest-client'
-require 'json'
 
 class WeathersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :prim2poppy ]
