@@ -5,7 +5,7 @@ MOTOR_NAMES = []
 class PoppyApi
 
   def initialize
-    @uri = "#{ENV["POPPY_WEB"]}"
+    @uri = ENV["POPPY_WEB"]
   end
 
   # Primitives Methods
@@ -123,6 +123,7 @@ class PoppyApi
     raise
   end
 end
+
 
 
 # REST-CLIENT

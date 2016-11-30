@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'primitives/list2poppy'
   get 'motors/motor2poppy'
   get 'motors/list2poppy'
+  get 'weathers/meteo'
 
   devise_for :users
   root to: 'pages#home'
