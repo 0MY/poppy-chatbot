@@ -1,4 +1,4 @@
-require 'net-ssh'
+require 'net/ssh'
 require 'rest-client'
 
 class WeathersController < ApplicationController
