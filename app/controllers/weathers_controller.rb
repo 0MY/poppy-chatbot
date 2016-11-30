@@ -5,10 +5,8 @@ class WeathersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :meteo ]
 
   def say(message)
-    uri = ENV["POPPY_WEB"]
-    len = uri.length
-    uri[len-5..len-5] == ":" ? uri = uri[7..len-6] : uri = uri[7..len]
-    Net::SSH.start(uri, 'poppy', password: "poppy") do |ssh|
+    port = ENV["POPPY_SSH_PORT"]
+    Net::SSH.start('0.tcp.ngrok.io', 'poppy', password: 'poppy', port: port) do |ssh|
       output = ssh.exec!("echo '#{message}' | espeak -vfr+m1 -a 50 -s 100 -p 50")
       puts output
     end
