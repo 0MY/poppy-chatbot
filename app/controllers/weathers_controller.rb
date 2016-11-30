@@ -5,8 +5,10 @@ class WeathersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :meteo ]
 
   def say(message)
-    Net::SSH.start('#{ENV[POPPY_WEB]}', 'poppy', password: "poppy") do |ssh|
-      output = ssh.exec!("echo '#{message}' | espeak -vfr+m1 -s 100 -p 50")
+    uri = ENV["POPPY_WEB"]
+    len = uri.length
+    Net::SSH.start(uri[7..len-6], 'poppy', password: "poppy") do |ssh|
+      output = ssh.exec!("echo '#{message}' | espeak -vfr+m1 -a 50 -s 100 -p 50")
       puts output
     end
   end
@@ -54,7 +56,8 @@ class WeathersController < ApplicationController
   end
 
   def get_meteo(city)
-    url = "http://api.openweathermap.org/data/2.5/forecast/city?q=#{city}&units=metric&APPID=#{ENV[OPEN_WEATHER_MAP]}"
+    # url = "http://api.openweathermap.org/data/2.5/forecast/city?q=#{city}&units=metric&APPID=087e48ff214e40dee982a4b338bcfbdf"
+    url = "http://api.openweathermap.org/data/2.5/forecast/city?q=#{city}&units=metric&APPID=#{ENV["OPEN_WEATHER_MAP"]}"
     response = RestClient.get(url)
     data = JSON.parse(response)["list"].first
     icon_id = data["weather"].first["icon"].to_i.to_s
@@ -66,7 +69,10 @@ class WeathersController < ApplicationController
   end
 
   def meteo
-    get_meteo(params[:city])
+    city = params[:city]
+    weather = get_meteo(city)
+    message = "à #{city}, il #{weather[:weather][:text]} et il fait #{weather[:temp]} degrés"
+    say(message)
     render json: {
      messages: [
        { text: "#{city}: #{weather[:weather][:emoji]} #{weather[:temp]}°C"}
