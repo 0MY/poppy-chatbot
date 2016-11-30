@@ -7,7 +7,8 @@ class WeathersController < ApplicationController
   def say(message)
     uri = ENV["POPPY_WEB"]
     len = uri.length
-    Net::SSH.start(uri[7..len-6], 'poppy', password: "poppy") do |ssh|
+    uri[len-5..len-5] == ":" ? uri = uri[7..len-6] : uri = uri[7..len]
+    Net::SSH.start(uri, 'poppy', password: "poppy") do |ssh|
       output = ssh.exec!("echo '#{message}' | espeak -vfr+m1 -a 50 -s 100 -p 50")
       puts output
     end
