@@ -2,7 +2,7 @@ require 'net/ssh'
 require 'rest-client'
 
 class WeathersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :prim2poppy ]
+  skip_before_action :authenticate_user!, only: [ :meteo ]
 
   def say(message)
     Net::SSH.start('#{ENV[POPPY_WEB]}', 'poppy', password: "poppy") do |ssh|
