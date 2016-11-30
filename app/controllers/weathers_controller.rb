@@ -57,7 +57,8 @@ class WeathersController < ApplicationController
 
   def get_meteo(city)
     # url = "http://api.openweathermap.org/data/2.5/forecast/city?q=#{city}&units=metric&APPID=087e48ff214e40dee982a4b338bcfbdf"
-    url = "http://api.openweathermap.org/data/2.5/forecast/city?q=#{city}&units=metric&APPID=#{ENV["OPEN_WEATHER_MAP"]}"
+    api_key = ENV['WEATHER']
+    url = "http://api.openweathermap.org/data/2.5/forecast/city?q=#{city}&units=metric&APPID=#{api_key}"
     response = RestClient.get(url)
     data = JSON.parse(response)["list"].first
     icon_id = data["weather"].first["icon"].to_i.to_s
